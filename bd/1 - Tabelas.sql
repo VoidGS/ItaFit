@@ -44,22 +44,21 @@ create table Funcionarios (
     constraint foreign key (idFuncao) references Funcoes (idFuncao)
 );
 
-drop table FormasPagamento;
-create table FormasPagamento (
-	idFormaPagamento int auto_increment not null,
-    tipoFormaPagamento varchar(255) not null unique,
-    constraint primary key (idFormaPagamento)
-);
+-- drop table FormasPagamento;
+-- create table FormasPagamento (
+	-- idFormaPagamento int auto_increment not null,
+    -- tipoFormaPagamento varchar(255) not null unique,
+    -- constraint primary key (idFormaPagamento)
+-- );
 
 drop table Pagamentos;
 create table Pagamentos (
 	idPagamento int auto_increment not null,
     idAluno int not null,
     dataPagamento datetime not null default current_timestamp,
-    idFormaPagamento int not null,
+    formaPagamento varchar(255) not null,
     constraint primary key (idPagamento),
-    constraint foreign key (idAluno) references Alunos (idAluno),
-    constraint foreign key (idFormaPagamento) references FormasPagamento (idFormaPagamento)
+    constraint foreign key (idAluno) references Alunos (idAluno)
 );
 
 drop table Treinos;
@@ -70,15 +69,15 @@ create table Treinos (
     constraint primary key (idTreino)
 );
 
-drop table Registro;
-create table Registro (
-	idRegistro int auto_increment not null,
-    idTreino int not null,
-    idAluno int not null,
-    idFuncionario int not null,
-    dataTreino datetime not null default current_timestamp,
-    constraint primary key (idRegistro),
-    constraint foreign key (idTreino) references Treinos (idTreino),
-    constraint foreign key (idAluno) references Alunos (idAluno),
-    constraint foreign key (idFuncionario) references Funcionarios (idFuncionario)
-);
+-- drop table Registro;
+-- create table Registro (
+	-- idRegistro int auto_increment not null,
+    -- idTreino int not null,
+    -- idAluno int not null,
+    -- idFuncionario int not null,
+    -- dataTreino datetime not null default current_timestamp,
+    -- constraint primary key (idRegistro),
+    -- constraint foreign key (idTreino) references Treinos (idTreino),
+    -- constraint foreign key (idAluno) references Alunos (idAluno),
+    -- constraint foreign key (idFuncionario) references Funcionarios (idFuncionario)
+-- );
